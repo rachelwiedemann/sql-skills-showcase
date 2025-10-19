@@ -1,7 +1,7 @@
 -- =========================================
--- JOINS Examples
--- =========================================
 --INNER JOIN: Get open claims and the assigned adjuster user
+-- =========================================
+
 SELECT 
   C.ClaimNumber, 
   C.Status, 
@@ -16,9 +16,12 @@ ORDER BY C.ClaimNumber
 -- Expected Output:
 -- ClaimNumber | Status | AdjusterName
 -- ABC12345    | O      | Jane Doe
-  
 
+  
+-- =========================================
 --LEFT JOIN: Get all opened or reopened claims include unassigned claims
+-- =========================================
+
 SELECT 
     C.ClaimNumber, 
     C.Status,
@@ -37,9 +40,12 @@ ORDER BY AdjusterName, C.ClaimNumber;
 -- ClaimNumber | Status | AdjusterName
 -- ABC12345    | O      | Jane Doe
 -- DEF98765    | R      | Unassigned
-  
 
+  
+-- =========================================
 --RIGHT JOIN: Get all active adjuster users and the count of claims they closed this year. The adjusters with the most claims closed will appear first. 
+-- =========================================
+
 SELECT 
   CONCAT(U.FirstName, ' ', U.LastName) AS AdjusterName, 
   COUNT(C.ClaimID) AS ClaimCount
@@ -53,13 +59,16 @@ ORDER BY ClaimCount DESC;
 
 **Use case:** Analyze the adjusters workloads
   
-
 -- Expected Output:
 -- AdjusterName | Claim Count
 -- Jane Doe     | 24 
 -- Sally Lu     | 16 
+  
 
+-- =========================================
 --FULL OUTER JOIN: Show all open and reopened claims and active adjuster users
+-- =========================================
+  
 SELECT 
     C.ClaimNumber, 
     C.Status, 
@@ -70,7 +79,6 @@ WHERE C.Status IN ('O','R') -- 'O' = Open, 'R' = Reopen
 ORDER BY AdjusterName, ClaimNumber;
 
 **Use case:** Identify claims without adjusters AND adjusters without claims
-
 
 -- Expected Output:
 -- ClaimNumber | Status | AdjusterName
