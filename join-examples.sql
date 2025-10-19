@@ -16,6 +16,7 @@ ORDER BY C.ClaimNumber
 -- Expected Output:
 -- ClaimNumber | Status | AdjusterName
 -- ABC12345    | O      | Jane Doe
+  
 
 --LEFT JOIN: Get all opened or reopened claims include unassigned claims
 SELECT 
@@ -36,6 +37,7 @@ ORDER BY AdjusterName, C.ClaimNumber;
 -- ClaimNumber | Status | AdjusterName
 -- ABC12345    | O      | Jane Doe
 -- DEF98765    | R      | Unassigned
+  
 
 --RIGHT JOIN: Get all active adjuster users and the count of claims they closed this year. The adjusters with the most claims closed will appear first. 
 SELECT 
@@ -50,6 +52,7 @@ GROUP BY CONCAT(U.FirstName, ' ', U.LastName)
 ORDER BY ClaimCount DESC;
 
 **Use case:** Analyze the adjusters workloads
+  
 
 -- Expected Output:
 -- AdjusterName | Claim Count
@@ -67,6 +70,7 @@ WHERE C.Status IN ('O','R') -- 'O' = Open, 'R' = Reopen
 ORDER BY AdjusterName, ClaimNumber;
 
 **Use case:** Identify claims without adjusters AND adjusters without claims
+
 
 -- Expected Output:
 -- ClaimNumber | Status | AdjusterName
