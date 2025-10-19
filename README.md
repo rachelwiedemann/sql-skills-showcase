@@ -6,4 +6,4 @@ This repository demonstrates advanced SQL concepts and techniques through practi
 ## Setup Instructions
 1. Clone this repository:
    ```bash
-   git clone https://github.com/rachelwiedemann/sql-skills-showcase.git
+   https://github.com/rachelwiedemann/sql-skills-showcase.git
