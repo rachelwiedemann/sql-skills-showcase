@@ -1,0 +1,19 @@
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Database files
+*.db
+*.sqlite
+*.bak
+
+# Logs
+*.log
+
+# Environment files
+.env
